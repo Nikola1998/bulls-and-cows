@@ -8,9 +8,8 @@ class RandomNumberGenerator {
     public String generateSecretCode(int length, int possibleCharacters) {
         StringBuilder result = new StringBuilder();
         int randomNumber;
-        boolean found = false;
         for (int i = 0; i < length; i++) {
-            while (!found) {
+            while (true) {
                 if (possibleCharacters <= 10) {
                     randomNumber = random.nextInt(possibleCharacters) + 48;
                 } else {
@@ -22,7 +21,7 @@ class RandomNumberGenerator {
                 }
                 if (result.indexOf("" + (char) randomNumber) == -1) {
                     result.append((char) randomNumber);
-                    found = true;
+                    break;
                 }
             }
         }
